@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from 'src/services/authentication-service.service';
 
 @Component({
   selector: 'bms-login',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BmsLoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _googleAuth: AuthenticationService) { }
 
   ngOnInit() {
   }
 
+  async loginViaGoogle() {
+    this._googleAuth.googleAuth();
+  }
 }

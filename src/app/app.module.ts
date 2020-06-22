@@ -6,7 +6,9 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
-
+import { RouterModule } from '@angular/router';
+import appRoutes from 'src/routerConfig';
+import { BmsHomeDashboardModule } from './bms-home-dashboard/bms-home-dashboard.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { environment } from '../environments/environment';
   ],
   imports: [
     BrowserModule,
+    RouterModule.forRoot(appRoutes),
     BmsLoginModule,
+    BmsHomeDashboardModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features

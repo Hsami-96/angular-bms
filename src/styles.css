@@ -1,0 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    /* this may need to moved to another css class */
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background-image: linear-gradient(150deg, #8e44ad, #4f0b27);
+    /* background-image: linear-gradient(150deg, #008080 , #40e0d0); */
+    /* background-image: linear-gradient(150deg, #00dfff , #00ffff); */
+
+}
