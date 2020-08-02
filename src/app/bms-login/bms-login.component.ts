@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from 'src/services/authentication-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'bms-login',
@@ -8,12 +9,20 @@ import { AuthenticationService } from 'src/services/authentication-service.servi
 })
 export class BmsLoginComponent implements OnInit {
 
-  constructor(private _googleAuth: AuthenticationService) { }
+  constructor(private _googleAuth: AuthenticationService, private router: Router) { }
 
   ngOnInit() {
   }
 
   async loginViaGoogle() {
-    this._googleAuth.googleAuth();
+    const test = await this._googleAuth.googleAuthLogin().then((result) => {
+    this.router.navigateByUrl('/dashboard');
+    // this.name = result.user.displayName;
+    this._googleAuth.isLoggedIn = true;
+    }).catch((error) => {
+      this._googleAuth.isLoggedIn = false;
+      console.log(error);
+    });
+    console.log(test);
   }
 }

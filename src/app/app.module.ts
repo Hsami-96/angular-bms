@@ -9,6 +9,8 @@ import { environment } from '../environments/environment';
 import { RouterModule } from '@angular/router';
 import appRoutes from 'src/routerConfig';
 import { BmsHomeDashboardModule } from './bms-home-dashboard/bms-home-dashboard.module';
+import { BmsNavigationComponent } from './bms-navigation/bms-navigation.component';
+import { BmsNavigationModule } from './bms-navigation/bms-navigation.module';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,7 @@ import { BmsHomeDashboardModule } from './bms-home-dashboard/bms-home-dashboard.
     RouterModule.forRoot(appRoutes),
     BmsLoginModule,
     BmsHomeDashboardModule,
+    BmsNavigationModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features

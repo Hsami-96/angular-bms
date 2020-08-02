@@ -13,3 +13,6 @@ body {
     /* background-image: linear-gradient(150deg, #00dfff , #00ffff); */
 
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
