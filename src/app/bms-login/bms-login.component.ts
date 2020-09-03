@@ -8,21 +8,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./bms-login.component.css']
 })
 export class BmsLoginComponent implements OnInit {
-
+  showUserCreatedMessage: boolean;
   constructor(private _googleAuth: AuthenticationService, private router: Router) { }
 
   ngOnInit() {
   }
 
   async loginViaGoogle() {
-    const test = await this._googleAuth.googleAuthLogin().then((result) => {
-    this.router.navigateByUrl('/dashboard');
-    // this.name = result.user.displayName;
-    this._googleAuth.isLoggedIn = true;
-    }).catch((error) => {
-      this._googleAuth.isLoggedIn = false;
-      console.log(error);
-    });
-    console.log(test);
+    await this._googleAuth.googleAuthLogin();
+    if (this._googleAuth.isLoggedIn){
+      this.router.navigateByUrl('/dashboard');
+    }
+
   }
 }

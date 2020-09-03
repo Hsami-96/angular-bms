@@ -1,0 +1,20 @@
+<form #userReg="ngForm" class="signup-form" (ngSubmit)="registerUser(userReg.value)">
+    <h1>Sign Up</h1>
+    
+    <div class="txtb">
+        <input [(ngModel)]="user.displayName" name="displayName" id="displayName" type="text" placeholder="Display Name">
+    </div>
+    <div class="txtb">
+        <input [(ngModel)]="user.email" name="email" id="email" type="text" placeholder="Email">
+    </div>
+    <div class="txtb">
+        <input [(ngModel)]="user.password" name="password" id="password" type="password" placeholder="Password">
+    </div>
+    
+    <input type="submit" class="signupBtn" value="Sign up">
+    <div class="authError" *ngIf="authError">
+        <div class="col-12 alert alert-danger">
+            {{authError?.message}}
+        </div>
+    </div>
+</form>

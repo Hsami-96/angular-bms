@@ -6,11 +6,10 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
-import { RouterModule } from '@angular/router';
-import appRoutes from 'src/routerConfig';
 import { BmsHomeDashboardModule } from './bms-home-dashboard/bms-home-dashboard.module';
-import { BmsNavigationComponent } from './bms-navigation/bms-navigation.component';
 import { BmsNavigationModule } from './bms-navigation/bms-navigation.module';
+import { BmsSignupModule } from './bms-signup/bms-signup.module';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -18,10 +17,11 @@ import { BmsNavigationModule } from './bms-navigation/bms-navigation.module';
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes),
+    AppRoutingModule,
     BmsLoginModule,
     BmsHomeDashboardModule,
     BmsNavigationModule,
+    BmsSignupModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features

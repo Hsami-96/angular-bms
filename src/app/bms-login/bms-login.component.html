@@ -1,4 +1,7 @@
 <div class="login-form">
+    <div class="userCreatedMessage" *ngIf="showUserCreatedMessage">
+        User has been created Successfully
+    </div>
     <h1>Login</h1>
     
     <div class="txtb">
@@ -11,6 +14,6 @@
     <input type="submit" class="loginbtn" value="Login">
     <input type="submit" class="googleLoginbtn" value="Login with Google" (click)="loginViaGoogle()">
    <div class="bottom-text">
-        Dont have an account? <a href="#">Sign up</a>
+        Dont have an account? <a routerLink="/signup">Sign up</a>
     </div>
 </div>
