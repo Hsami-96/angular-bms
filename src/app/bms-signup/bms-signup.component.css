@@ -49,6 +49,21 @@
 .txtb input:focus {
     border-bottom: 2px solid #a81a55;
 }
+.txtb input.ng-invalid.ng-touched {
+    border-bottom: 2px solid red;
+}
+.txtb input.ng-valid.ng-touched {
+    border-bottom: 2px solid green;
+}
+.pwdSpanInvalid {
+    font-size: smaller;
+    color: grey;
+}
+
+.pwdSpanValid {
+    font-size: smaller;
+    color: green;
+}
 .signupBtn {
     display: block;
     width: 100%;

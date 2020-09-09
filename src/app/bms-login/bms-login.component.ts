@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from 'src/services/authentication-service.service';
 import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/services/authentication/authentication.service';
 
 @Component({
   selector: 'bms-login',
@@ -9,14 +9,21 @@ import { Router } from '@angular/router';
 })
 export class BmsLoginComponent implements OnInit {
   showUserCreatedMessage: boolean;
-  constructor(private _googleAuth: AuthenticationService, private router: Router) { }
+  authError: any;
+  constructor(private authService: AuthenticationService, private router: Router) { }
 
   ngOnInit() {
+    this.authService.eventAuthError$.subscribe(data => {
+      this.authError = data;
+    });
   }
 
+  async loginViaEmailPwd() {
+  }
+  
   async loginViaGoogle() {
-    await this._googleAuth.googleAuthLogin();
-    if (this._googleAuth.isLoggedIn){
+    await this.authService.googleAuthLogin();
+    if (this.authService.isLoggedIn){
       this.router.navigateByUrl('/dashboard');
     }
 

@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { User } from 'src/models/user';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { BehaviorSubject } from 'rxjs';
+import { LoggerService } from '../logger/logger.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -13,14 +14,14 @@ export class AuthenticationService {
   eventAuthError$ = this.eventAuthError.asObservable();
   isLoggedIn: boolean;
   isUserCreated: boolean;
-  constructor(public afAuth: AngularFireAuth, private db: AngularFirestore, public router: Router) {}
+  constructor(public afAuth: AngularFireAuth, private db: AngularFirestore, public router: Router, private logger: LoggerService) {}
 
   async googleAuthLogin(){
-    return await this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then((result) => {
+    return await this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(() => {
       this.isLoggedIn = true;
       }).catch((error) => {
         this.isLoggedIn = false;
-        console.log(error);
+        this.eventAuthError.next(error);
       });
   }
 
@@ -37,9 +38,8 @@ export class AuthenticationService {
         this.isUserCreated = true;
       });
     })
-    .catch(e => {
-      console.log(e);
-      this.eventAuthError.next(e);
+    .catch(error => {
+      this.eventAuthError.next(error);
     });
   }
 }

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { BmsLoginComponent } from './bms-login/bms-login.component';
 import { BmsHomeDashboardComponent } from './bms-home-dashboard/bms-home-dashboard.component';
-import { AuthGuardService } from 'src/services/authentication-guard.service';
+import { AuthGuardService } from 'src/services/authentication/authentication-guard.service';
 import { BmsSignupComponent } from './bms-signup/bms-signup.component';
 
 const routes: Routes = [

@@ -1,14 +1,19 @@
-<form #userReg="ngForm" class="signup-form" (ngSubmit)="registerUser(userReg.value)">
+<!-- <form #userReg="ngForm" class="signup-form" (ngSubmit)="registerUser(userReg.value)"> -->
+<form [formGroup]="signUpForm" class="signup-form">
     <h1>Sign Up</h1>
     
     <div class="txtb">
-        <input [(ngModel)]="user.displayName" name="displayName" id="displayName" type="text" placeholder="Display Name">
+        <input [(ngModel)]="user.displayName" formControlName="displayName" name="displayName" id="displayName" type="text" placeholder="Display Name">
     </div>
     <div class="txtb">
-        <input [(ngModel)]="user.email" name="email" id="email" type="text" placeholder="Email">
+        <input [(ngModel)]="user.email" formControlName="email" name="email" id="email" type="email" placeholder="Email">
     </div>
     <div class="txtb">
-        <input [(ngModel)]="user.password" name="password" id="password" type="password" placeholder="Password">
+        <input [(ngModel)]="user.password" formControlName="password" name="password" id="password" type="password" placeholder="Password">
+        <span [ngClass]="password.invalid ? 'pwdSpanInvalid': 'pwdSpanValid'" > - At least 8 characters in length<br />- Lowercase letters
+            <br />-Uppercase letters
+            <br />-Numbers
+            <br />-Special characters</span>
     </div>
     
     <input type="submit" class="signupBtn" value="Sign up">
