@@ -49,10 +49,10 @@
 .txtb input:focus {
     border-bottom: 2px solid #a81a55;
 }
-.txtb input.ng-invalid.ng-touched {
+.txtb input.ng-invalid.ng-dirty{
     border-bottom: 2px solid red;
 }
-.txtb input.ng-valid.ng-touched {
+.txtb input.ng-valid.ng-dirty {
     border-bottom: 2px solid green;
 }
 .pwdSpanInvalid {

@@ -1,5 +1,5 @@
 <!-- <form #userReg="ngForm" class="signup-form" (ngSubmit)="registerUser(userReg.value)"> -->
-<form [formGroup]="signUpForm" class="signup-form">
+<form [formGroup]="signUpForm" (submit)="registerUser(signUpForm.value)" class="signup-form">
     <h1>Sign Up</h1>
     
     <div class="txtb">
